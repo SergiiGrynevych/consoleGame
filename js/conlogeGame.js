@@ -1,5 +1,5 @@
-class Hero{
-    constructor({name = 'hero', xp = 0} = {}) {
+class Hero {
+    constructor({ name = 'hero', xp = 0 } = {}) {
         this.name = name;
         this.xp = xp;
     }
@@ -10,14 +10,14 @@ class Hero{
     }
 }
 
-class Mage extends Hero{
+class Mage extends Hero {
     constructor(config) {
         super(config);
         this.spells = config.spells;
         this.npc = config.npc;
         this.health = config.health;
     }
-    
+
     cast() {
         objDB.chooseSpell();
         alert(`${this.name} кастует ${this.spells[objDB.indexOfSpell]}`);
@@ -43,9 +43,9 @@ class Mage extends Hero{
                     alert(`Вы нанесли ${randomDamageByMage} урона и ты, ${this.name} одолел ${superMage.npcForBattle}`);
                     break;
                 }
-            } 
+            }
             alert(`Вы нанесли ${randomDamageByMage} урона, у ${superMage.npcForBattle} осталось ${healthOfNpc} жизней. Вам нанесли ${damageToMage}. Остаток здоровья ${mageHealth}`);
-            
+
         } while (i++ < 10);
         alert(`Ты сумарно нанес ${superMage.npcForBattle}, ${Number(damageToNpc)} урона. Поздравляю с победой, ${this.name}! Остаток твоего здоровья: ${mageHealth}`);
     }
@@ -57,12 +57,12 @@ const objDB = {
     spellsForCharacterToUse: 0,
     character: function () {
         let i = 0;
-        while (i ++ < 1) {
+        while (i++ < 1) {
             const nameCharacter = prompt('Введите имя Вашего персонажа');
             if (nameCharacter != null && nameCharacter != '') {
                 return nameCharacter;
             } else {
-                i --;
+                i--;
             }
         }
     },
@@ -89,34 +89,34 @@ const objDB = {
             alert(`В пещере, ты набрел на ${superMage.npcForBattle}. Будь осторожней, это проворные существа.`);
             // let allSpells = '';
             this.spellsForCharacterToUse = superMage.spells.map(function (spell, i) {
-                return ` ${ i + 1} : ${spell}`;
+                return ` ${i + 1} : ${spell}`;
             });
         } else {
             superMage.npcForBattle = superMage.npc[1];
             alert(`В тёмном лесу, ты набрел на ${superMage.npcForBattle}. Будь осторожней, это проворные существа.`);
             // let allSpells = '';
             this.spellsForCharacterToUse = superMage.spells.map(function (spell, i) {
-                return ` ${ i + 1} : ${spell}`;
+                return ` ${i + 1} : ${spell}`;
             });
         }
     },
     chooseSpell: function () {
         let i = 0;
-        while (i ++ < 1) {
+        while (i++ < 1) {
             this.indexOfSpell = Number(prompt(`Какое заклинание выберешь для атаки? ${this.spellsForCharacterToUse}`)) - 1;
-                if (this.indexOfSpell === 0 || this.indexOfSpell === 1 || this.indexOfSpell === 2 || this.indexOfSpell === 3 || this.indexOfSpell === 4) {
-                    return this.indexOfSpell;
-                } else {
-                    i --;
-                }
-        }        
+            if (this.indexOfSpell === 0 || this.indexOfSpell === 1 || this.indexOfSpell === 2 || this.indexOfSpell === 3 || this.indexOfSpell === 4) {
+                return this.indexOfSpell;
+            } else {
+                i--;
+            }
+        }
     },
     endGame: function () {
-        this.ratingOfGame = Number(prompt(`Это была демо версия игры, если ты хочешь узнать как ты развивалсь события, расскажи об этой игре своим друзьям и близким, а так же не забудь оценить эту игру`, '1-100'));
+        this.ratingOfGame = Number(prompt(`Это была демо версия игры, если ты хочешь узнать как дальше развивались события, расскажи об этой игре своим друзьям и близким, а так же не забудь оценить эту игру`, '100'));
     }
 };
 // objDB.character();
-const superMage = new Mage({ name: objDB.character(), xp: 500, spells: ['огненный шар', ' морозная волна', ' ледяная глыба', ' огненная стрела', ' огненная волна'], npc: ['гоблин', 'орк'] , health: 1000 });
+const superMage = new Mage({ name: objDB.character(), xp: 500, spells: ['огненный шар', ' морозная волна', ' ледяная глыба', ' огненная стрела', ' огненная волна'], npc: ['гоблин', 'орк'], health: 1000 });
 
 objDB.startTheGame();
 console.log(objDB.indexOfSpell);
