@@ -19,16 +19,11 @@ class Mage extends Hero{
     }
     
     cast() {
-        // const arrayRandElement = function (arr) {
-        //     const rand = Math.floor(Math.random() * arr.length);
-        //     return arr[rand];
-        // };
-        objDB.indexOfSpell = Number(prompt(`Какое заклинание выберешь для атаки? ${objDB.spellsForCharacterToUse}`)) - 1;
+        objDB.chooseSpell();
         alert(`${this.name} кастует ${this.spells[objDB.indexOfSpell]}`);
     }
     npcAttack(health) {
         // console.log(`Вы встретили ${this.npc}, он агрессивно настроен и прыгает на Вас`);
-        
         let healthOfNpc = health;
         let damageToNpc = 0;
         let mageHealth = this.health;
@@ -96,8 +91,6 @@ const objDB = {
             this.spellsForCharacterToUse = superMage.spells.map(function (spell, i) {
                 return ` ${ i + 1} : ${spell}`;
             });
-            // this.chooseSpell();
-            // console.log(`${superMage.cast()}`);
         } else {
             superMage.npcForBattle = superMage.npc[1];
             alert(`В тёмном лесу, ты набрел на ${superMage.npcForBattle}. Будь осторожней, это проворные существа.`);
@@ -108,7 +101,15 @@ const objDB = {
         }
     },
     chooseSpell: function () {
-        do {this.indexOfSpell = Number(prompt(`Какое заклинание выберешь для атаки? ${this.spellsForCharacterToUse}`)) - 1;} while (superMage.npcAttack.healthOfNpc <= 0);
+        let i = 0;
+        while (i ++ < 1) {
+            this.indexOfSpell = Number(prompt(`Какое заклинание выберешь для атаки? ${this.spellsForCharacterToUse}`)) - 1;
+                if (this.indexOfSpell === 0 || this.indexOfSpell === 1 || this.indexOfSpell === 2 || this.indexOfSpell === 3 || this.indexOfSpell === 4) {
+                    return this.indexOfSpell;
+                } else {
+                    i --;
+                }
+        }        
     },
     endGame: function () {
         this.ratingOfGame = Number(prompt(`Это была демо версия игры, если ты хочешь узнать как ты развивалсь события, расскажи об этой игре своим друзьям и близким, а так же не забудь оценить эту игру`, '1-100'));
@@ -118,6 +119,6 @@ const objDB = {
 const superMage = new Mage({ name: objDB.character(), xp: 500, spells: ['огненный шар', ' морозная волна', ' ледяная глыба', ' огненная стрела', ' огненная волна'], npc: ['гоблин', 'орк'] , health: 1000 });
 
 objDB.startTheGame();
-
+console.log(objDB.indexOfSpell);
 
 
