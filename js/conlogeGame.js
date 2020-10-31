@@ -105,7 +105,6 @@ const objDB = {
             this.spellsForCharacterToUse = superMage.spells.map(function (spell, i) {
                 return ` ${ i + 1} : ${spell}`;
             });
-            this.indexOfSpell = Number(prompt(`Какое заклинание выберешь для атаки? ${this.spellsForCharacterToUse}`)) - 1;
         }
     },
     chooseSpell: function () {
