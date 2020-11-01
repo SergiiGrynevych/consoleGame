@@ -5,8 +5,9 @@ class Hero {
     }
 
     gainXp(amount) {
-        alert(`${this.name} получает ${this.xp} опыта за убийство ${superMage.npcForBattle}`);
+        alert(`${this.name} получает ${amount} опыта за убийство ${superMage.npcForBattle}`);
         this.xp += amount;
+        alert(`Твой суммарный опыт составляет ${this.xp}`);
     }
 }
 
@@ -65,6 +66,7 @@ const objDB = {
                 i--;
             }
         }
+        
     },
     startTheGame: function () {
         const start = confirm(`Поздравляю, ${superMage.name} в суворой реальности, где миром правят орки, и тебе судьбой преначертанно это исправить. Готов к испытаниям?`);
@@ -75,7 +77,7 @@ const objDB = {
             superMage.gainXp(500);
             this.endGame();
             // console.log(`${superMage.gainXp()}`);
-            return start;
+            // return start;
         } else {
             alert(`Игра окончена, единственная надежда была на тебе ${superMage.name}. Человечество пало.`);
             alert(`Если ты хочешь начать игру заново, обнови страницу. В следующий раз у тебя обязательно получиться, ${superMage.name}`);
@@ -116,7 +118,7 @@ const objDB = {
     }
 };
 // objDB.character();
-const superMage = new Mage({ name: objDB.character(), xp: 500, spells: ['огненный шар', ' морозная волна', ' ледяная глыба', ' огненная стрела', ' огненная волна'], npc: ['гоблин', 'орк'], health: 1000 });
+const superMage = new Mage({ name: objDB.character(), amount: 3, spells: ['огненный шар', ' морозная волна', ' ледяная глыба', ' огненная стрела', ' огненная волна'], npc: ['гоблин', 'орк'], health: 1000 });
 
 objDB.startTheGame();
 console.log(objDB.indexOfSpell);
