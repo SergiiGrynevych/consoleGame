@@ -11,6 +11,7 @@ input {
   text-align: center;
   padding: 15px;
   width: 250px;
+  cursor: pointer;
 }
 
 p {
@@ -27,7 +28,6 @@ section {
   height: 100%;
   padding-bottom: 100%;
 
-  background-image: url(../img/bcgImage.jpg);
   /* background-repeat: no-repeat; */
   background-position: center;
   background-size: cover;

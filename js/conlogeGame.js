@@ -1,3 +1,6 @@
+const input = document.querySelector('input');
+const section = document.querySelector('section');
+
 class Hero {
     constructor({ name = 'hero', xp = 0 } = {}) {
         this.name = name;
@@ -61,12 +64,12 @@ const objDB = {
         while (i++ < 1) {
             const nameCharacter = prompt('Введите имя Вашего персонажа');
             if (nameCharacter != null && nameCharacter != '') {
+                section.style.backgroundImage = 'url(../img/bcgImage.jpg)';
                 return nameCharacter;
             } else {
                 i--;
             }
         }
-        
     },
     startTheGame: function () {
         const start = confirm(`Поздравляю, ${superMage.name} в суворой реальности, где миром правят орки, и тебе судьбой преначертанно это исправить. Готов к испытаниям?`);
@@ -81,6 +84,8 @@ const objDB = {
         } else {
             alert(`Игра окончена, единственная надежда была на тебе ${superMage.name}. Человечество пало.`);
             alert(`Если ты хочешь начать игру заново, обнови страницу. В следующий раз у тебя обязательно получиться, ${superMage.name}`);
+            section.style.backgroundImage = 'url(../img/gameover.png)';
+            section.innerHTML = '';
         }
     },
     battleWithNpc: function () {
@@ -115,12 +120,13 @@ const objDB = {
     },
     endGame: function () {
         this.ratingOfGame = Number(prompt(`Это была демо версия игры, если ты хочешь узнать как дальше развивались события, расскажи об этой игре своим друзьям и близким, а так же не забудь оценить эту игру`, '100'));
+        section.style.backgroundImage = 'url(../img/gameover.png)';
+        section.innerHTML = '';
     }
 };
 // objDB.character();
 const superMage = new Mage({ name: objDB.character(), amount: 3, spells: ['огненный шар', ' морозная волна', ' ледяная глыба', ' огненная стрела', ' огненная волна'], npc: ['гоблин', 'орк'], health: 1000 });
 
-objDB.startTheGame();
+// input.addEventListener('click', objDB.startTheGame);
+// input.addEventListener('click', objDB.startTheGame);
 console.log(objDB.indexOfSpell);
-
-
