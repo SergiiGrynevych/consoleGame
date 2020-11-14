@@ -46,7 +46,7 @@ class Mage extends Hero {
                 if (healthOfNpc <= 0) {
                     alert(`Вы нанесли ${randomDamageByMage} урона и ты, ${this.name} одолел ${superMage.npcForBattle}`);
                     break;
-                }
+                            }
             }
             alert(`Вы нанесли ${randomDamageByMage} урона, у ${superMage.npcForBattle} осталось ${healthOfNpc} жизней. Вам нанесли ${damageToMage}. Остаток здоровья ${mageHealth}`);
 
@@ -64,7 +64,7 @@ const objDB = {
         while (i++ < 1) {
             const nameCharacter = prompt('Введите имя Вашего персонажа');
             if (nameCharacter != null && nameCharacter != '') {
-                section.style.backgroundImage = 'url(../img/bcgImage.jpg)';
+                section.style.backgroundImage = 'url(./img/bcgImage.jpg)';
                 return nameCharacter;
             } else {
                 i--;
@@ -84,7 +84,7 @@ const objDB = {
         } else {
             alert(`Игра окончена, единственная надежда была на тебе ${superMage.name}. Человечество пало.`);
             alert(`Если ты хочешь начать игру заново, обнови страницу. В следующий раз у тебя обязательно получиться, ${superMage.name}`);
-            section.style.backgroundImage = 'url(../img/gameover.png)';
+            section.style.backgroundImage = 'url(./img/gameover.png)';
             section.innerHTML = '';
         }
     },
