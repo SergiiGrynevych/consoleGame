@@ -120,7 +120,7 @@ const objDB = {
     },
     endGame: function () {
         this.ratingOfGame = Number(prompt(`Это была демо версия игры, если ты хочешь узнать как дальше развивались события, расскажи об этой игре своим друзьям и близким, а так же не забудь оценить эту игру`, '100'));
-        section.style.backgroundImage = 'url(../img/gameover.png)';
+        section.style.backgroundImage = 'url(./img/gameover.png)';
         section.innerHTML = '';
     }
 };
